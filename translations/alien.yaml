@@ -1,0 +1,95 @@
+# translations/alien.yaml
+
+{
+    "title" : "Blar Smrfar Dar",
+    "tooltips" : {
+        "useFake" : "Blurbubery^^",
+        "goBack" : "Mogexa ur tuntii",
+        "useAlien" : "Edio limiki",
+        "useEnglish" : "Erfu English redi",
+        "useLightThem" : "Eqimu yex",
+        "useDarkTheme" : "Equimau loxina?"
+    },
+    "menu" : {
+        "clinician" : {
+            "head" : "Hur Nurdut",
+            "sub" : "Globecki murdu murdinu"
+        },
+        "service" : {
+            "head" : "Hur Batook",
+            "sub" : "Smeganec Tugo Florp"
+        },
+        "office" : {
+            "head" : "Hur Uko Loxi",
+            "sub" : "Tanak teconigat burkid"
+        },
+        "date_time" : {
+            "head" : "Hur Gloman",
+            "sub" : "Kalo maki maki tai"
+        }
+    },
+    "clinician" : {
+        "title" : "Kurbi Smukticus Blop",
+        "schedule" : "Buni Blobigop",
+        "reset" : "Nogestu  re varily loniguntu",
+         "selectFake" : "Pra Fowl Powl",
+         "why" : "Ekimushina revinu teb takliks der talkisic API sugen"
+    },
+    "service" : {
+        "labels" : {
+            "duration" : "Smectron:",
+            "cost" : "Latinum:"
+        },
+        "values" : {
+            "duration" : "{duration, plural, =0 {Bler} =1 {Bun} other { Bununi}}"
+        },
+        "error" : "Mediolp hyui grentu {clinicianId} renikiakx"
+    },
+    "office" : {
+        "labels" : {
+            "phone_number" : "Klapthor:"
+        },
+        "error" : "Mesugemuai loe i {clinicianId} yuji reftigano"
+    },
+    "common" : {
+        "select" : "Buni",
+        "clinicianId" : "Brekl ol:",
+        "host" : "Uje ol:",
+        "service" : "Polq ol:",
+        "office" : "Gamok ol:",
+        "sorry" : "Gebuku",
+        "restart" : "Proxymaloi^^",
+        "error" : "KUN"
+    },
+    "wrapup" : {
+        "title" : "Blurx API xenu muki",
+        "subtitle" : "Klafanu fathu munil podek",
+        "improve" : "Keki myun^^",
+        "improve_1" : "Pleki decki nekthor mu nyed il rentoed <strong>Barfuggleriben</strong> wandermuju polexi muliked pol wes toba
+        muik kurlo neiw qox brekuji smezuno lepi meki texki tai illi ere",
+        "improve_2" : "Plexi secondo wac vur murii leimm mmnel mnyty bexis ** mogesi munton **",
+        "punchList" : {
+            "localize" : "<span>Nacxica ole</span>",
+            "styling" : "Beleixz zumc",
+            "tests" : "Greblin",
+            "cleanup" : "Bantu Glatu CSS Muhi",
+            "darkMode" : "<span>ploxiax \"Dark mode\"</span> [[ Gilli Gilli flop Flopr ]]",
+            "moreTests" : "Greblin KAPLAAAGH!!",
+            "jenky" : "Niki Tiki Numi",
+            "styleThis" : "()= ewdr olik slsli ",
+            "mobile" : "guni Grem"
+        },
+        "thanks" : "Pexocazo Munirefticor Losem breman nurs",
+        "signed" : "Zanzibar Kofax",
+        "minutia" : "Klomex Colomoctoc gren fu wu iklos <a href=\"tel:+16505564385\">650-556-4385</a> miki tiki gremu aol pq
+                                 <a href=\"mailTo:scott.fanetti@gmail.com?subject=Simple Practice Demo&body=TAKE ME TO YOUR LEADER!!\">scott.fanetti@gmail.com"
+
+    },
+     "error" : {
+         "unknown" : "#$@%",
+         "unknownRoute" : "kediju hymuklo polike  dekask progexa",
+         "general" : "nolkidto madyjuj grulo musk medert wexivo"
+
+     }
+}
+

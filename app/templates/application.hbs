@@ -1,0 +1,45 @@
+<div id="root-container" class="{{unless this.isLightTheme 'dark-theme-on'}} {{if this.isAlien 'alien-font-on'}}">
+    {{#if this.isReady}}
+        <div class="outer-container">
+                <header class="header">
+                    <i class="doctor-icon fa-solid fa-user-doctor-hair fa-2x"></i>
+                    <div class="title-container">
+                        <h1>{{t 'title't}}</h1></div>
+
+                    <a href="#" class="locale-toggle"
+                         title = "{{t this.localToolTipKey}}"
+                        {{on 'click' (fn this.onLocaleChange)}}>
+                        <div>
+                            {{#if this.isAlien}}
+                                <i class="fa-solid fa-flag-usa fa-2x"></i>
+                            {{else}}
+                                <i class="fas fa-alien fa-2x"></i>
+                            {{/if}}
+                        </div>
+                    </a>
+
+                    <a href="#" class="theme-toggle"
+                       title = "{{t this.themeToolTipKey}}"
+                        {{on 'click' (fn this.onToggleTheme)}}>
+                       <div>
+                        {{#if this.isLightTheme}}
+                            <i class="fa-solid fa-moon-stars fa-2x"></i>
+                        {{else}}
+                            <i class="fa-solid fa-sun-bright fa-2x"></i>
+                        {{/if}}
+                       </div>
+                    </a>
+                </header>
+                <main class="schedule-container">
+                    <div class="schedule-menu-container">
+                        <Common::Menu />
+                    </div>
+                    <div class="schedule-states">
+                        {{outlet}}
+                    </div>
+                </main>
+        </div>
+    {{else}}
+        {{outlet}}
+    {{/if}}
+</div>

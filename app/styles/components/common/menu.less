@@ -1,0 +1,151 @@
+@import '../../util/colors';
+@import '../../util/dimensions';
+
+.menu-layout(@use-mobile-layout: false) {
+    .get-colors();
+    .get-dimensions();
+    .menu-list {
+        // 1-10 unicode for the font-awesome glyphs
+        @list: "\e256", "\e257", "\e258", "\e259", "\e25a", "\e25b", "\e25c", "\e25d", "\e25e", "\e25f";
+        @count: length(@list);
+        height: if(@use-mobile-layout, auto, 100%);
+        width: 100%;
+
+        background-color: @-light-nav-menu-background;
+        transition: background-color @layout-animation-speed ease;
+
+        ol {
+            display: if(@use-mobile-layout, flex, auto);
+        };
+
+        li {
+            width: if(@use-mobile-layout, auto, 100%);
+            flex-shrink: if(@use-mobile-layout, 1, 0);
+            padding-left: if(@use-mobile-layout, 0, 2rem);
+            padding-top: if(@use-mobile-layout, 0, 1rem);
+            padding-right: if(@use-mobile-layout, 0, 2rem);
+            margin-right: if(@use-mobile-layout, 0, 3rem);
+            font-size: 2rem;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0);
+            margin-bottom: if(@use-mobile-layout, 0, 2rem);
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+
+            h4 {
+                color: @-light-nav-menu-header-text;
+                transition: color @layout-animation-speed ease;
+                .strip-link-decorations(@-light-nav-menu-header-text);
+            }
+            h5 {
+                color: @-light-nav-menu-subhead;
+                transition: color @layout-animation-speed ease;
+                .strip-link-decorations(@-light-nav-menu-subhead);
+            }
+            a {
+                display: if(@use-mobile-layout, none, auto);
+                text-decoration: none;
+                outline: none;
+            }
+            .title {
+                font-size: 2rem;
+                white-space: nowrap;;
+                display: inline-block;
+                font-weight: 900;
+                margin-bottom: .5rem;
+            }
+            .details {
+                white-space: pre-wrap;
+                max-height: 0;
+                font-size: 1.5rem;
+                max-width: 25rem;
+                padding-bottom: 0;
+                transition: all @layout-animation-speed ease;
+            }
+            &:hover {
+                background-color: @-light-nav-menu-hover-background;
+                transition: background-color @layout-animation-speed ease;
+            }
+            &.active {
+                background-color: @-light-nav-menu-active-background;
+                transition: background-color @layout-animation-speed ease;
+                flex-basis: if(@use-mobile-layout, 100%, 0);
+                padding-left: 2rem;
+                & .details {
+                    max-height: 20rem;
+                    padding-bottom: 2rem;
+                    transition: all @layout-animation-speed ease;
+                }
+                & > a{
+                    display: if(@use-mobile-layout, inline, auto);
+                }
+            }
+
+            &.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                background-color: @-light-nav-menu-background;
+                transition: background-color @layout-animation-speed ease;
+            }
+        }
+
+        li:before {
+            font-family: "Font Awesome 6 Pro";
+            font-weight: 900;
+            color: @-light-nav-menu-bullet;
+            transition: color @layout-animation-speed ease;
+        }
+
+        each(range(@count), {
+            li:nth-child(@{key}) {
+                &:before {
+                    content: extract(@list, @key);
+                }
+            }
+        });
+    }
+
+    #root-container {
+        &.dark-theme-on {
+            .menu-list {
+                background-color: @-dark-nav-menu-background;
+                transition: background-color @layout-animation-speed ease;
+                li {
+                    h4 {
+                        color: @-dark-nav-menu-header-text;
+                        transition: color @layout-animation-speed ease;
+                        .strip-link-decorations(@-dark-nav-menu-header-text);
+                    }
+                    h5 {
+                        color: @-dark-nav-menu-subhead;
+                        transition: color @layout-animation-speed ease;
+                        .strip-link-decorations(@-dark-nav-menu-subhead);
+                    }
+
+                    &.active {
+                        background-color: @-dark-nav-menu-active-background;
+                        transition: background-color @layout-animation-speed ease;
+                    }
+                    &:hover {
+                        background-color: @-dark-nav-menu-hover-background;
+                        transition: background-color @layout-animation-speed ease;
+                    }
+                    &.disabled {
+                        opacity: 0.5;
+                        cursor: not-allowed;
+                        background-color: @-dark-nav-menu-background;
+                        transition: background-color @layout-animation-speed ease;
+                    }
+                }
+
+                li:before {
+                    color: @-dark-nav-menu-bullet;
+                    transition: color @layout-animation-speed ease;
+                }
+            }
+        }
+    }
+}
+
+

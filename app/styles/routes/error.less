@@ -1,0 +1,50 @@
+@import '../util/tools';
+@import '../util/dimensions';
+@import '../util/colors';
+
+.error(@use-mobile-layout) {
+    .get-dimensions();
+    .get-colors();
+    .error-container {
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        padding: 2rem;
+        justify-content: center;
+        text-align: center;
+
+        .error-icon-container {
+            text-align: center;
+            font-size: 24rem;
+            color: @-light-warning;
+        }
+
+        .error-title {
+            font-size: 8rem;
+            padding: 3rem 0;
+        }
+
+        .error-details {
+            margin-bottom: 3rem;
+        }
+
+        .control-container {
+            text-align: center;
+        }
+
+    }
+
+    .update-layout() when (@use-mobile-layout) {
+        .error-container {
+            flex-direction: column;
+        }
+        .error-message-container {
+            flex-direction: column;
+        }
+
+        .error-icon-container, .error-title {
+            align-self: center;
+        }
+    }
+    .update-layout();
+}

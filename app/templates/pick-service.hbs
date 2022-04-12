@@ -1,0 +1,17 @@
+<Common::ScrollContainer @meta={{@model.meta}} @onScrollUpdate={{action "onScrollPositionChanged" }}>
+    <div class="services-container  {{unless @model.data.length 'no-data'}}">
+        {{#each @model.data as |code|}}
+            <Pick::CptCode @code={{code}} @clinicianId={{@model.clinicianId}} />
+        {{/each}}
+
+        {{#unless @model.data.length }}
+            <div class="no-services-found">
+                <div class="title-container">
+                    <i class="fa-regular fa-face-confused"></i>
+                    <h1>{{t "common.sorry"}}</h1>
+                </div>
+                <h3>{{t "service.error" clinicianId=@model.clinicianId}}</h3>
+            </div>
+        {{/unless}}
+    </div>
+</Common::ScrollContainer>

@@ -1,0 +1,53 @@
+@import '../util/colors';
+
+.pick-office() {
+    .get-colors();
+    .offices-container {
+        height: auto;
+        display: flex;
+        padding: 2rem;
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: 3rem;
+
+        &.no-data {
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        .no-offices-found {
+            align-self:center;
+            margin-top: auto;
+            margin-bottom: auto;
+
+            .title-container {
+                color: @-light-form-header-text;
+                font-size: 10rem;
+                margin-bottom: 3rem;
+                h1{
+                    font-size: 10rem;
+                    display:inline;
+                }
+            }
+
+            h3 {
+                color: @-light-form-sub-header-text;
+            }
+        }
+    }
+
+    #root-container {
+        &.dark-theme-on {
+            .services-container {
+                .no-offices-found {
+                    .title-container {
+                        color: @-dark-form-header-text;
+                    }
+                    h3 {
+                        color: @-dark-form-sub-header-text;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,184 @@
+@import '../../util/tools';
+@import '../../util/dimensions';
+@import '../../util/colors';
+
+.select-clinician(@use-mobile-layout: false) {
+    .get-dimensions();
+    .get-colors();
+
+    .select-clinician-container {
+        .border(@-light-element-border);
+        .shadow();
+        width: 70%;
+        min-width: 25rem;
+        border-radius: @border-radius-sm;
+        display: flex;
+        padding: 2rem;
+        flex-direction: column;
+
+        background-color: @-light-form-background;
+        transition: background-color @layout-animation-speed ease;
+
+        * {
+            //outline: 1px solid purple;
+        }
+
+
+        h1 {
+            margin-bottom: 2rem;
+            color: @-light-form-header-text;
+            transition: color @layout-animation-speed ease;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 3rem;
+            gap: 1rem;
+            .input-container {
+                flex: 1 1 100%;
+                input {
+                    padding: 1rem 1.2rem;
+                    border: 1px inset grey;
+                    border-radius: .3rem;
+                }
+
+                label {
+                    font-weight: 600;
+                    padding-right: 2rem;
+                    align-self: if(@use-mobile-layout, start, center);
+                    margin-bottom: if(@use-mobile-layout, 1rem, 0);
+                }
+                .field-set {
+                    display: flex;
+                    flex-direction: if(@use-mobile-layout, column, row);
+                    flex-wrap: nowrap;
+                    margin-bottom: 1rem;
+                    label {
+                        flex: 0 0 auto;
+                    }
+                    .input-wrapper {
+                        flex: 1 1 100%;
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .reset-btn {
+                flex: 0 0 auto;
+                display: inline-block;
+                align-self: center;
+                .strip-link-decorations(@-light-link-text, @-light-link-text-hover);
+
+            }
+        }
+
+        .controls-and-fakes {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .fakes-and-toggle-container {
+                flex: 1 0 2rem;
+            }
+            .fake-toggle {
+                flex: 1 0 auto;
+                display: inline-block;
+                padding: 1rem 1rem;
+                z-index: 1;
+                .strip-link-decorations(@-light-link-text, @-light-link-text-hover);
+            }
+            .use-fakes-container {
+                outline: none;
+                position:relative;
+                width: 0;
+
+                .fake-overlay {
+                    .shadow();
+                    .border(@-light-element-border);
+                    background-color: @-light-form-background;
+                    transition: background-color @layout-animation-speed ease;
+                    position: absolute;
+                    padding: 1.5rem 2rem;
+                    height: 0;
+                    display: none;
+                    flex-direction: column;
+                    bottom: 4.9rem;
+
+                    &:after {
+                        background-color: @-light-form-background;
+                        position: absolute;
+                        display: block;
+                        height: 1rem;
+                        width: 1rem;
+                        content: " ";
+                        border-bottom: @border-width solid @-light-element-border;
+                        border-right: @border-width solid @-light-element-border;
+                        transform: rotate(45deg);
+                        bottom: -0.6rem;
+                        left: 1.75rem;
+                    }
+
+                    .explanation {
+                        padding: 1.5rem 0;
+                    }
+
+                    .fake-picker-label {
+                        font-weight: 700;
+                        padding-top: 2rem;
+                    }
+                    &.show {
+                        display: flex;
+                        height: auto;
+                        width: 20rem;
+                        .fake-list {
+                            line-height:2.8rem;
+                            margin-top: 2rem;
+                        }
+                        a {
+                            .strip-link-decorations(@-light-link-text);
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                }
+            }
+            .controls {
+                flex: 1 1 100%;
+                text-align: right;
+            }
+        }
+    }
+
+    #root-container {
+        &.dark-theme-on {
+            .select-clinician-container {
+                .border(@-dark-element-border);
+                .shadow();
+                background-color: @-dark-form-background;
+                transition: background-color @layout-animation-speed ease;
+                h1 {
+                    color: @-dark-form-header-text;
+                    transition: color @layout-animation-speed ease;
+                }
+                a {
+                    .strip-link-decorations(@-dark-link-text, @-dark-link-text-hover);
+                }
+                .use-fakes-container {
+
+                    .fake-overlay {
+                        &:after {
+                            background-color: @-dark-form-background;
+                            border-bottom-color: @-dark-element-border;
+                            border-right-color: @-dark-element-border;
+                        }
+                        .border(@-dark-element-border);
+                        background-color: @-dark-form-background;
+                        transition: background-color @layout-animation-speed ease;
+                    }
+                }
+            }
+        }
+    }
+}

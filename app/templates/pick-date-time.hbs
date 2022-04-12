@@ -1,0 +1,43 @@
+<Common::ScrollContainer>
+    <div class="date-time-container">
+        <div class="wrap-up">
+            <h1>{{t 'wrapup.title'}}</h1>
+            <h3>{{t 'wrapup.subtitle'}}</h3>
+            <dl>
+                <dt>{{t "common.clinicianId"}} </dt>
+                <dd>{{this.session.clinicianId}}</dd>
+                <dt>{{t "common.host"}}</dt>
+                <dd>{{this.session.currentHost}}</dd>
+                <dt>{{t "common.service"}}</dt>
+                <dd>{{this.session.cptCode}}</dd>
+                <dt>{{t "common.office"}}</dt>
+                <dd>{{this.session.officeId}}</dd>
+            </dl>
+            <h4>{{t 'wrapup.improve'}}</h4>
+            <p>{{{t 'wrapup.improve_1'}}}</p>
+            <p>{{t 'wrapup.improve_2'}}</p>
+            <ul>
+                <li>{{{t 'wrapup.punchList.localize'}}}</li>
+                <li>{{t 'wrapup.punchList.styling'}}</li>
+                <li>{{t 'wrapup.punchList.tests'}}</li>
+                <li>{{t 'wrapup.punchList.cleanup'}}</li>
+                <li>{{{t 'wrapup.punchList.darkMode'}}}</li>
+                <li>{{t 'wrapup.punchList.moreTests'}}</li>
+                <li>{{t 'wrapup.punchList.jenky'}}</li>
+                <li>{{t 'wrapup.punchList.styleThis'}}</li>
+                <li>{{t 'wrapup.punchList.mobile'}}</li>
+            </ul>
+
+            <div class="closing">
+                <h4>{{t 'wrapup.thanks'}}</h4>
+                <div class="signature">
+                <span class="classy">
+                    {{t 'wrapup.signed'}}
+                </span>
+                </div>
+            </div>
+
+            <div class="obligatory-minutia">{{{t 'wrapup.minutia'}}}</div>
+        </div>
+    </div>
+</Common::ScrollContainer>

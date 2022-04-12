@@ -1,0 +1,19 @@
+<div class="error-container">
+    <div class="error-icon-container">
+        <i class="fa-regular fa-triangle-exclamation"></i>
+    </div>
+    <div class="error-message-container">
+        <div class="error-details">
+            <h1 class="error-title">{{t "error.unknown"}}</h1>
+            <h4 class="error-details">{{t "error.unknownRoute"}}
+            </h4>
+        </div>
+        <div class="control-container">
+            <LinkTo @route="pick-clinician" >
+                <button  type="button" class="btn btn-primary btn-recovery">
+                    {{t "common.restart"}}
+                </button>
+            </LinkTo>
+        </div>
+    </div>
+</div>

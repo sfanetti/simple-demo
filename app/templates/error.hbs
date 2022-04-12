@@ -1,0 +1,16 @@
+<div class="error-container">
+    <div class="error-icon-container">
+        <i class="fa-regular fa-triangle-exclamation"></i>
+    </div>
+    <h1 class="error-title">{{t "common.error"}}</h1>
+    <div class="error-details foo">
+        {{t "error.general"}}
+    </div>
+    <div class="control-container">
+        <LinkTo @route="pick-clinician" >
+            <button type="button" class="btn btn-primary btn-recovery">
+                {{t "common.restart"}}
+            </button>
+        </LinkTo>
+    </div>
+</div>

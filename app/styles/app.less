@@ -1,0 +1,152 @@
+// reset and fonts
+@import 'util/resets';
+@import 'util/fonts';
+@import 'util/dimensions';
+@import 'util/tools';
+@import 'util/colors';
+
+// component styles
+@import 'components/pick/cpt-code';
+@import 'components/pick/office';
+@import 'components/pick/clinician';
+@import 'components/common/menu';
+@import 'components/common/scroll-container';
+
+// route styles
+@import 'routes/application';
+@import 'routes/error';
+@import 'routes/error-404';
+@import 'routes/loading';
+@import 'routes/pick-clinician';
+@import 'routes/pick-office';
+@import 'routes/pick-service';
+@import 'routes/pick-date-time';
+
+@title-font: "Le Monde Journal Book", "Times New Roman";
+@body-font: Roboto, sans-serif;
+@body-font-alien: Alien;
+
+html {
+    /*
+        allows for setting sizes based on base 10 rems.
+        1.5rem is the equivalent of 15px but this scales
+        with the user's browser font size
+        Some people hate this - some people see the utility
+         - i like it but..
+        its subjective :)
+     */
+    font-size: 62.5%;
+
+    &[lang="alien"] {
+        h1,h2,h3,h4,h5,h6,p,span,dd,dt,ul,ol,button,label,div,blockquote{
+            font-family: Alien, sans-serif;
+        }
+    }
+}
+
+/**
+    Just setting base container here - for the demo I am assuming
+    this is just a standalone route - dunno.
+    This is not the best styling but given the time and the
+    nature of this I did not think the styling needed to be uber clean
+ */
+body {
+    height: 100vh;
+    width: 100vw;
+    font-size: @body-size;
+    font-family: @body-font;
+}
+
+.setup-error();
+
+// component mixins
+.select-clinician();
+.select-cpt-code();
+.select-office();
+
+// route container mixing
+.pick-clinician();
+.pick-office();
+.pick-service();
+.pick-date-time();
+
+.menu-layout();
+.scroll-container();
+
+.get-colors();
+.get-dimensions();
+
+.setHeaderStyles(6, @line-height-multiple);
+
+.device-layout(@minWidth, @maxWidth, @use-mobile-layout, @border-color) {
+    #root-container {
+        //outline: 0.3rem solid @border-color;
+        //outline-offset: -0.3rem;
+    }
+    .outer-container-layout(@minWidth, @maxWidth, @use-mobile-layout);
+    .error-404(@use-mobile-layout);
+    .error(@use-mobile-layout);
+}
+
+
+@media only screen and (min-width: 1824px) {
+    .device-layout(1224px, 100%, false, red);
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1824px) {
+    .device-layout(1224px, 100%, false, blue);
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1268px) {
+    .device-layout(1224px, 100%, false, #ff901f);
+    .select-clinician(true);
+}
+
+@media only screen and (min-width: 736px) and (max-width: 1024px) {
+    .device-layout(736px, 1024px, false, green);
+    .select-cpt-code(true);
+    .select-office(true);
+    .select-clinician(true);
+}
+
+@media only screen and (min-width: 640px) and (max-width: 736px) {
+    .device-layout(640px, 736px, true, yellow);
+    .menu-layout(true);
+    .select-cpt-code(true);
+    .select-office(true);
+    .select-clinician(true);
+}
+
+@media only screen and (min-width: 568px) and (max-width: 640px) {
+    .device-layout(568px, 640px, true, coral);
+    .menu-layout(true);
+    .select-cpt-code(true);
+    .select-office(true);
+    .select-clinician(true);
+}
+
+@media only screen and (min-width: 480px) and (max-width: 568px) {
+    .device-layout(480px, 568px, true, purple);
+    .menu-layout(true);
+    .select-cpt-code(true);
+    .select-office(true);
+    .select-clinician(true);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .device-layout(100%, 480px, true, grey);
+    .menu-layout(true);
+    .select-cpt-code(true);
+    .select-office(true);
+    .select-clinician(true);
+}
+
+@media only screen and (max-width: 320px) {
+    .device-layout(100%, 320px, true, teal);
+    .menu-layout(true);
+    .select-cpt-code(true);
+    .select-office(true);
+    .select-clinician(true);
+}
+
+

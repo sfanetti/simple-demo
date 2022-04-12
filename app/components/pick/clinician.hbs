@@ -1,0 +1,66 @@
+<div class="select-clinician-container">
+    <h1>{{t "clinician.title"}}</h1>
+    <form class="form-area">
+        <div class="input-group">
+            <div class="input-container">
+                <fieldSet class="field-set clinician-input-container">
+                    <label for="choose-clinician">{{t "common.clinicianId"}}</label>
+                    <div class="input-wrapper">
+                        <Input id="choose-clinician" autofocus @value={{this.session.clinicianId}} />
+                    </div>
+                </fieldSet>
+                <fieldSet class="field-set host-input-container">
+                    <label for="choose-host">{{t "common.host"}}</label>
+                    <div class="input-wrapper">
+                        <Input id="choose-host" @value={{this.session.currentHost}} />
+                        <a href="#" class="reset-to-default"></a>
+                    </div>
+                </fieldSet>
+            </div>
+            <a href="#" class="reset-btn" {{on 'click' (fn this.onResetToDefaults )}} title="{{t 'clinician.reset'}}">
+                <i class="fa-regular fa-rotate-left fa-2x"></i>
+            </a>
+        </div>
+        <div class="controls-and-fakes">
+            <div class="fakes-and-toggle-container">
+                <a href="#" class="fake-toggle"
+                   title = "{{t this.fakeTooltipKey}}"
+                    {{on 'click' (fn this.onToggleShowFake)}}>
+                    <div>
+                        {{#if this.isFakeBackend}}
+                            <i class="fa-light fa-face-smile-halo fa-2x"></i>
+                        {{else}}
+                            <i class="fa-light fa-face-disguise fa-2x"></i>
+                        {{/if}}
+                    </div>
+                </a>
+                <div class="use-fakes-container">
+                    <div class="fake-overlay {{if this.isFakeBackend 'show'}}">
+                        <div class="explanation">
+                            {{t "clinician.why"}}
+                        </div>
+                        <div class="fake-picker">
+                            <dh5 class="fake-picker-label">
+                                {{t "clinician.selectFake"}}
+                            </dh5>
+                            <div class="fake-list">
+                                {{#each this.fakeBackend.clinicians as |clinician|}}
+                                    <div class="clinician-item">
+                                        <a href="#" class="select-clinician"
+                                            {{on 'click' (fn this.onSelectFakeClinician clinician)}} >
+                                            {{clinician.name}}
+                                        </a>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button type="button" class="btn btn-primary btn-select-service"
+                    {{on 'click' (fn this.onSelectClinician @office.id)}}>{{t "clinician.schedule"}}</button>
+            </div>
+        </div>
+    </form>
+</div>

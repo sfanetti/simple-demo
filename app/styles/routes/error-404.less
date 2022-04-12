@@ -1,0 +1,53 @@
+@import '../util/tools';
+@import '../util/dimensions';
+@import '../util/colors';
+
+.error-404(@use-mobile-layout) {
+    .get-dimensions();
+    .get-colors();
+    .error-container {
+        display:flex;
+        flex-direction: row;
+        padding: 2rem;
+
+        .error-icon-container {
+            font-size: 24rem;
+            color: @-light-warning;
+        }
+
+        .error-title {
+            padding: 3rem 0;
+        }
+
+        .error-details {
+            margin-bottom: 3rem;
+        }
+
+        .error-message-container {
+            padding: 3rem;
+            display: flex;
+        }
+
+        .control-container {
+            text-align: center;
+        }
+
+    }
+
+    .update-layout() when (@use-mobile-layout) {
+        .error-container {
+            flex-direction: column;
+        }
+        .error-message-container {
+            flex-direction: column;
+        }
+
+        .error-icon-container, .error-title {
+            align-self: center;
+        }
+    }
+
+    .update-layout();
+}
+
+

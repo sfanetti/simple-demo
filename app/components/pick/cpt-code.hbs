@@ -1,0 +1,27 @@
+<div class="cpt-code-container">
+    <div class="service-container">
+        <div class="name-and-callout">
+            <h3 class="description">{{@code.description}}</h3>
+            {{#if this.calloutUrl}}
+                <a href="{{this.calloutUrl}}" target="blank" class="call-out">
+                    <i class="fa-regular fa-up-right-from-square"></i>
+                </a>
+            {{/if}}
+        </div>
+        <div class="details">
+            <dl>
+                <dt>{{t "service.labels.duration"}}</dt>
+                <dd class="duration">{{t "service.values.duration" duration=@code.duration}}</dd>
+            </dl>
+            <dl>
+                <dt>{{t "service.labels.cost"}}</dt>
+                <dd class="cost">{{format-number @code.rate style='currency' currency='USD'}}</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="controls">
+        <button  type="button" class="btn btn-primary btn-select-service"
+            {{on 'click' (fn this.onSelectCode @code.id)}}>{{t "common.select"}}</button>
+    </div>
+</div>
+

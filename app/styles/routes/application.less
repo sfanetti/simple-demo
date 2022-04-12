@@ -1,0 +1,139 @@
+@import '../util/tools';
+@import '../util/dimensions';
+@import '../util/colors';
+
+.outer-container-layout(@minWidth, @maxWidth, @use-mobile-layout) {
+    .get-dimensions();
+    .get-colors();
+    #root-container {
+        height: 100vh;
+        width: 100vw;
+        color: @-light-body-text;
+        *:focus,-moz-focusring {
+            outline: 0.2rem dotted @-light-outline-color;
+        }
+
+        transition: background-color,color @layout-animation-speed ease;
+        background-color: @-light-page-background;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .setButtonStyle('primary');
+
+        .outer-container {
+            .border(@-light-container-border);
+            .shadow();
+
+            background-color: @-light-container-background;
+            transition: background-color,max-width,width @layout-animation-speed ease;
+            width: if(@use-mobile-layout, 100%, 100vw - 30rem);
+            max-width: if(@use-mobile-layout, 100%, 100%);
+            height: if(@use-mobile-layout, 100vh, 100vh - 10rem);
+
+            display:flex;
+            flex-direction: column;
+            border-radius: if(@use-mobile-layout, 0, @border-radius-md);
+            overflow:hidden;
+
+            .header {
+                flex: 0 0;
+                height: 3rem;
+                display:flex;
+                flex-direction: row;
+                padding: 4rem 2rem;
+                color: @-light-title-header-text;
+                background-color: @-light-title-header-background;
+                background: @-light-title-header-gradient;
+                transition: all @layout-animation-speed ease;
+
+                gap: 2rem;
+
+                .doctor-icon {
+                    flex: 0 0 auto;
+                    align-self:center;
+                }
+
+                .title-container {
+                    flex: 1 1 100%;
+                    align-self:center;
+                }
+                .theme-toggle, .locale-toggle {
+                    align-self: flex-end;
+                    flex: 1 1 auto;
+                    align-self:center;
+                    cursor: pointer;
+                    .strip-link-decorations(@-light-title-header-text);
+                    &:hover,&:active {
+                        .glow(@-light-text-glow);
+                    }
+                }
+            }
+            .schedule-container {
+                flex: 1 1 100%;
+                display:flex;
+                flex-direction: if(@use-mobile-layout, column, row);
+                height: calc(100% - 8rem);
+
+                .schedule-menu-container {
+                    min-width: 20rem;
+                    min-height: if(@use-mobile-layout, auto, 60rem);
+                    border-right: @-light-element-border dashed @border-width;
+                    transition: border-right @layout-animation-speed ease;
+                    z-index: 3;
+                    .shadow();
+                    box-shadow: if(@use-mobile-layout, auto, none);
+                }
+                .schedule-states {
+                    flex: 1 1 100%;
+                    height: 100%;
+                    overflow-y: hidden;
+                }
+
+            }
+
+        }
+        &.dark-theme-on {
+            background: @-dark-page-background;
+            transition: background-color,color @layout-animation-speed ease;
+            color: @-dark-body-text;
+
+            *:focus,-moz-focusring {
+                outline: 0.2rem dotted @-dark-outline-color;
+            }
+
+            .setButtonStyle('primary',
+                @-dark-button-primary-text,
+                @-dark-button-primary-gradient,
+                @-dark-button-primary-gradient-active,
+                @-light-button-primary-border
+            );
+
+            .outer-container {
+                .border(@-dark-container-border);
+                background-color: @-dark-container-background;
+                transition: background-color @layout-animation-speed ease;
+                .header {
+                    color: @-dark-title-header-text;
+                    background-color: @-dark-title-header-background;
+                    background: @-dark-title-header-gradient;
+                    transition: all @layout-animation-speed ease;
+
+                    .theme-toggle{
+                        :hover {
+                            .glow(@-dark-text-glow);
+                        }
+                    }
+                }
+                .schedule-container {
+                    .schedule-menu-container {
+                        border-right: @-dark-element-border dashed @border-width;
+                        transition: border-right @layout-animation-speed ease;
+                    }
+
+                }
+            }
+        }
+    }
+}

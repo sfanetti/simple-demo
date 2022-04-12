@@ -1,0 +1,98 @@
+# translations/en-us.yaml
+
+{
+    "title" : "Schedule a Visit",
+    "tooltips" : {
+        "useFake" : "Use Fake Backend?",
+        "goBack" : "Stop and go back to normal",
+        "useAlien" : "Switch to Alien Language?",
+        "useEnglish" : "Switch to English?",
+        "useLightThem" : "Switch to Light Mode?",
+        "useDarkTheme" : "Switch to Dark Mode?"
+    },
+    "menu" : {
+        "clinician" : {
+            "head" : "Choose Clinician",
+            "sub" : "Enter Clinician Id and Host Url in the area provided"
+        },
+        "service" : {
+            "head" : "Choose Service",
+            "sub" : "Services can be online or in person"
+        },
+        "office" : {
+            "head" : "Choose Office",
+            "sub" : "Office visits may be subject to restrictions"
+        },
+        "date_time" : {
+            "head" : "Choose Date",
+            "sub" : "Got no API for this part :)"
+        }
+    },
+    "clinician" : {
+        "title" : "Select Clinician",
+        "schedule" : "Schedule Appointment",
+        "reset" : "Restore default Clinician and Host",
+        "selectFake" : "Pick a Fake",
+        "why" : "The API did not have enough content to show things like scrolling and such so I created some fakes"
+    },
+    "service" : {
+        "labels" : {
+            "duration" : "Duration:",
+            "cost" : "Cost:"
+        },
+        "values" : {
+            "duration" : "{duration, plural, =0 {No Time} =1 {Minute} other {# Minutes}}"
+        },
+        "error" : "There are no services offered by Clinician: {clinicianId}"
+    },
+    "office" : {
+        "labels" : {
+            "phone_number" : "Phone Number"
+        },
+        "error" : "There are no offices on record for Clinician: {clinicianId}"
+    },
+    "common" : {
+        "select" : "Select",
+        "clinicianId" : "Clinician Id:",
+        "host" : "Host Url:",
+        "service" : "CPT Code:",
+        "office" : "Office Id:",
+        "sorry" : "Sorry",
+        "restart" : "Restart?",
+        "error" : "Error"
+    },
+    "wrapup" : {
+        "title" : "I ain't got no API",
+        "subtitle" : "I guess I can show my work so far though",
+        "improve" : "What to improve?",
+        "improve_1" : "<strong>LOTS</strong>. I did not have a ton of time this week but if I had more time - here is a partial list of the
+                               things I would do to finish this out. I mean - I guess there is still time in the week so I could do all
+                               the rest of the things - but I don't know where the bar is for you guys.  Hopefully you don't judge too
+                               harshly",
+        "improve_2" : "Incidentally - I was going to grab more style stuff from your site but I figured the scope of the
+                               assignment was a little more along the lines of \"make something bespoke\"",
+        "punchList" : {
+            "localize" : "<span>Localize the strings</span>",
+            "styling" : "improve the styling",
+            "tests" : "Add more tests",
+            "cleanup" : "clean up the CSS",
+            "darkMode" : "<span>Implement dark mode</span> ( Click the moon up there on the right )",
+            "moreTests" : "MORE TESTS",
+            "jenky" : "Clean up some of the jenky component and route names",
+            "styleThis" : "Style this page :)",
+            "mobile" : "Better small screen handling"
+        },
+        "thanks" : "Thanks for taking the time to review this",
+        "signed" : "Scott Fanetti",
+        "minutia" : "I am curious about your opinions - call <a href=\"tel:+16505564385\">650-556-4385</a> or email me at
+                                 <a href=\"mailTo:scott.fanetti@gmail.com?subject=Simple Practice Demo&body=We LOVED your Demo Scott! You got the job\">scott.fanetti@gmail.com"
+
+    },
+    "error" : {
+        "unknown" : "404",
+        "unknownRoute" : "We are not sure what you are looking for",
+        "general" : "An error occurred.  We have been notified and will take steps to address it."
+
+    }
+}
+

@@ -1,0 +1,80 @@
+@import 'dimensions';
+@import 'colors';
+
+.get-dimensions();
+.get-colors();
+
+.strip-link-decorations(@color, @hover-color: @color) {
+    text-decoration: none;
+    outline: none;
+    &:link,&:visited,&:hover,&:focus,&:active {
+        -moz-focusring: none !important;
+        outline: none !important;
+        color: @color;
+    }
+    &:hover,&:focus,&:active {
+        color: @hover-color;
+    }
+}
+
+.border(@border-color) {
+    border: @border-color solid @border-width;
+    transition: border @layout-animation-speed ease;
+}
+.glow(@text-glow: 0 0 10px #fff) {
+    text-shadow: @text-glow;
+    transition: text-shadow @hover-animation-speed ease;
+}
+.shadow(@intensity: 15%) {
+    box-shadow:
+        0 .1rem .1rem rgba(0, 0, 0, @intensity),
+        0 .2rem .2rem rgba(0, 0, 0, @intensity),
+        0 .4rem .4rem rgba(0, 0, 0, @intensity),
+        0 .8rem .8rem rgba(0, 0, 0, @intensity),
+        0 1.6rem 1.6rem rgba(0, 0, 0, @intensity);
+}
+
+.setHeaderStyles(@counter, @mult) when (@counter > 0) {
+    .setHeaderStyles(@counter - 1, @mult);
+    @h: e(replace('h%', '%', @counter));
+    @prop1: replace('h%-size', '%', @counter);
+
+    @font-family: if(@counter > 3, Roboto, 'Le Monde Journal Book');
+
+    @{h} {
+        font-family: @font-family;
+        font-size: @@prop1;
+        line-height: @@prop1 * @mult;
+        font-weight: bold;
+    }
+}
+.setButtonStyle(
+    @type: 'primary',
+    @text-color: @-light-button-primary-text,
+    @background: @-light-button-primary-gradient,
+    @background-active: @-light-button-primary-gradient-active,
+    @border-color: @-light-button-primary-border) {
+
+    @selector: e( replace('btn-%', '%', @type));
+    button.btn {
+        padding: 1rem 1.5rem;
+        border-radius: @border-radius-md;
+        font-weight: 600;
+        font-size: @body-size;
+        border: thin @border-color;
+        cursor: pointer;
+
+        &.@{selector} {
+            background: @background;
+            transition: background, color @layout-animation-speed ease;
+            color: @text-color;
+            &:hover,&:focus {
+                background: @background-active;
+                transition: background @layout-animation-speed ease;
+                .glow();
+            }
+        }
+    }
+}
+
+
