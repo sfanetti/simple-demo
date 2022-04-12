@@ -315,7 +315,7 @@
     "@babel/helper-plugin-utils" "^7.16.7"
     "@babel/plugin-syntax-class-static-block" "^7.14.5"
 
-"@babel/plugin-proposal-decorators@^7.13.5":
+"@babel/plugin-proposal-decorators@^7.13.5", "@babel/plugin-proposal-decorators@^7.17.9":
   version "7.17.9"
   resolved "https://purecloud.jfrog.io/purecloud/api/npm/inin-internal-npm/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.17.9.tgz#67a1653be9c77ce5b6c318aa90c8287b87831619"
   integrity sha512-EfH2LZ/vPa2wuPwJ26j+kYRkaubf89UlwxKXtxqEm57HrgSEYDB8t4swFP+p8LcI9yiP9ZRJJjo/58hS6BnaDA==
@@ -2050,7 +2050,7 @@ babel-core@^6.26.0, babel-core@^6.26.3:
     slash "^1.0.0"
     source-map "^0.5.7"
 
-babel-eslint@^10.0.2:
+babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://purecloud.jfrog.io/purecloud/api/npm/inin-internal-npm/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
   integrity sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg==
@@ -5393,6 +5393,11 @@ escape-string-regexp@^4.0.0:
   version "4.0.0"
   resolved "https://purecloud.jfrog.io/purecloud/api/npm/inin-internal-npm/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
+
+eslint-plugin-decorators@^0.0.0:
+  version "0.0.0"
+  resolved "https://purecloud.jfrog.io/purecloud/api/npm/inin-internal-npm/eslint-plugin-decorators/-/eslint-plugin-decorators-0.0.0.tgz#6f2f1a52711eb483aa927c98c21741dfb264a1fe"
+  integrity sha512-wjzdtFgvzVb5KDqQUa5wOcaxpCFtnm08iVyKxh1PdyN5ypclnocS679zfkt4j9uDuT8PuPgnyqjOviRg32ybyQ==
 
 eslint-plugin-ember@^10.6.0:
   version "10.6.0"
