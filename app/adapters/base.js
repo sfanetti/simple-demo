@@ -20,5 +20,11 @@ export default class BaseAdapter extends JSONAPIAdapter {
             'Application-Platform': 'web'
         }
     }
+    buildURL(modelName, id, snapshot, requestType, query) {
+        const { clinician_id } = query || {};
+        const path = super.pathForType(modelName);
+
+        return `${this.host}/${this.namespace}/${path}/?filter[clinicianId]=${clinician_id}`;
+    }
 
 }

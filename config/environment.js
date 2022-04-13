@@ -22,6 +22,14 @@ module.exports = function (environment) {
             API_VERSION: '2020-01-01',
             API_HOST: 'https://johnny-appleseed.clientsecure.me',
             INITIAL_CUSTOMER_ID: '2'
+        },
+
+        GOOGLE_MAPS: {
+            SRC_URL: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBe_neBFS4Wnpj9hkwetvZAPGtTQ6OP6Yk'
+        },
+
+        CURRENCY: {
+            SYMBOL: '$'
         }
     };
 

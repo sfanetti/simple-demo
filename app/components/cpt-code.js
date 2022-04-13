@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export default class MenuComponent extends Component {
+export default class OfficeComponent extends Component {
     get duration() {
         const { duration } = this.args.code;
         return `${duration} minutes`;

@@ -1,0 +1,56 @@
+@import 'light-theme';
+
+.menu-list {
+    .light-theme();
+    li {
+        font-size: 2rem;
+        overflow: hidden;
+        border: 1px solid #00000022;
+        padding: 0;
+        margin-bottom: 2rem;
+
+        &.active {
+            & > .details {
+                height: auto;
+                padding: 1.5rem 0;
+            }
+        }
+        .title {
+            font-size: 2rem;
+            display: inline-block;
+            font-weight: 900;
+            margin-bottom: .5rem;
+        }
+        .details {
+            height: 0;
+            font-size: 1.5rem;
+        }
+    }
+
+    li:before {
+        font-family: "Font Awesome 6 Pro";
+        font-weight: 900;
+        color: @menu-primary-label-color;
+    }
+
+    li:nth-child(1) {
+        &:before {
+            content: "\e256";
+        }
+    }
+    li:nth-child(2) {
+        &:before {
+            content: "\e257";
+        }
+    }
+    li:nth-child(3) {
+        &:before {
+            content: "\e258";
+        }
+    }
+    li:nth-child(4) {
+        &:before {
+            content: "\e259";
+        }
+    }
+}

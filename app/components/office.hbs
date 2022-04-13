@@ -1,10 +1,33 @@
 <div class="office-container">
     <h3 class="name">
-
+        {{@office.name}}
     </h3>
-    <div class="map-container"></div>
-    <div class="phone-number">
 
+    {{#if @office.isVideo}}
+        <div class="video-card">
+        </div>
+    {{else}}
+        <div class="map-container">
+            <div class="map-component">
+                <iframe
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src={{mapUrl}}>
+                </iframe>
+            </div>
+        </div>
+    {{/if}}
+    <div class="phone-number">
+        {{@office.phone}}
     </div>
-    <span class="isVideo"></span>
+    <div class="visit-details">
+        {{#if @office.isVideo}}
+            <span class="isVideo"></span>
+        {{/if}}
+
+        {{#if @office.isPublic}}
+            <span class="isPublic"></span>
+        {{/if}}
+    </div>
 </div>

@@ -1,6 +1,74 @@
 // CSS additions
 @import 'resets';
+@import 'fonts';
+
+@import 'light-theme';
 
 
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-size: 1.6rem;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .debugBorder(green);
+}
+
+.debugBorder(@border-color) {
+    border: @border-color solid 0.15rem;
+}
+
+.outer-container {
+    .light-theme();
+    .debugBorder(@outer-border-color);
+    max-width: calc(100% - 50rem);
+    min-width: calc(100% - 4rem);
+    display:flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow:hidden;
+
+    .header {
+        flex: 1 1 100%;
+        display:flex;
+        flex-direction: row;
+        padding: 2rem;
+        color: @header-font-color;
+        background-color: @header-background-color;
+        .title-container {
+            flex: 1 1 100%;
+            font-size: 3rem;
+            font-family: "Le Monde Journal Book", "Times New Roman";
+        }
+
+        .nav-menu {
+            align-self: flex-end;
+            flex: 1 1 auto;
+        }
+    }
+    .schedule-container {
+        display:flex;
+        flex-direction: row;
+
+        .schedule-menu-container {
+            min-width: 20%;
+            padding: 1.5rem;
+            background-color: @menu-background-color;
+            min-height: 60rem;
+        }
+
+
+    }
+}
+
+@import 'menu';
+@import 'select-clinician';
 
 
