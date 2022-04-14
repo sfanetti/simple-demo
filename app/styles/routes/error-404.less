@@ -1,18 +1,18 @@
-@import '../themes';
+@import '../util/tools';
+@import '../util/dimensions';
+@import '../util/colors';
 
-.error-404(@use-mobile-layout, @is-using-dark-theme) {
+.error-404(@use-mobile-layout) {
+    .get-dimensions();
+    .get-colors();
     .error-container {
-        * {
-            border: solid red 1px;
-        }
-        .get-themes(@is-using-dark-theme);
         display:flex;
         flex-direction: row;
         padding: 2rem;
 
         .error-icon-container {
             font-size: 24rem;
-            color: @warning;
+            color: @-light-warning;
         }
 
         .error-title {
@@ -29,7 +29,7 @@
         }
 
         .control-container {
-            text-align: right;
+            text-align: center;
         }
 
     }

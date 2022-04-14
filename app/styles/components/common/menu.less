@@ -1,13 +1,14 @@
-@import '../../themes';
+@import '../../util/colors';
 
-.menu-layout(@max-width, @isDark: false) {
+.menu-layout(@max-width: false) {
+    .get-colors();
     .menu-list {
         // 1-10 unicode for the font-awesome glyphs
         @list: "\e256", "\e257", "\e258", "\e259", "\e25a", "\e25b", "\e25c", "\e25d", "\e25e", "\e25f";
         @count: length(@list);
+        height: 100%;
 
-        .get-themes(@isDark);
-        background-color: @menu-background;
+        background-color: @-light-nav-menu-background;
 
         li {
             width: 100%;
@@ -19,16 +20,21 @@
             overflow: hidden;
             border: 1px solid rgba(0, 0, 0, 0);
             margin-bottom: 2rem;
+            cursor: pointer;
 
             h4 {
-                color: @menu-text;
+                color: @-light-nav-menu-header-text;
             }
             h5 {
-                color: @menu-detail-text;
+                color: @-light-nav-menu-subhead;
+            }
+            &.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
             }
 
             &.active {
-                background-color: @menu-accent;
+                background-color: @-light-nav-menu-active-background;
                 & > .details {
                     transition: all 300ms ease;
                     height: auto;
@@ -52,7 +58,7 @@
         li:before {
             font-family: "Font Awesome 6 Pro";
             font-weight: 900;
-            color: @menu-bullet;
+            color: @-light-nav-menu-bullet;
         }
 
         each(range(@count), {

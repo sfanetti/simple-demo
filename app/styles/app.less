@@ -1,7 +1,9 @@
 // reset and fonts
 @import 'util/resets';
 @import 'util/fonts';
-@import 'themes';
+@import 'util/dimensions';
+@import 'util/tools';
+@import 'util/colors';
 
 // component styles
 @import 'components/pick/cpt-code';
@@ -17,12 +19,11 @@
 @import 'routes/pick-clinician';
 @import 'routes/pick-office';
 @import 'routes/pick-service';
-
+@import 'routes/pick-date-time';
 
 @is-using-dark-theme: false;
 @title-font: "Le Monde Journal Book", "Times New Roman";
 @body-font: Roboto, sans-serif;
-@debug-background: true;
 
 html {
     /*
@@ -47,31 +48,34 @@ body {
     width: 100vw;
     font-size: @body-size;
     font-family: @body-font;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &.dark-theme-on {
-        @is-using-dark-theme: true;
-    }
 }
+
+// component mixins
+.select-clinician();
+.select-cpt-code();
+.select-office();
+
+// route container mixing
+.pick-clinician();
+.pick-office();
+.pick-service();
+.pick-date-time();
+
+.get-colors();
+.get-dimensions();
+
+.setButtonStyle('primary', @-light-button-primary-text, @-light-button-primary-gradient);
+.setHeaderStyles(6, @line-height-multiple);
 
 .device-layout(@minWidth, @maxWidth, @use-mobile-layout, @bgColor) {
     body {
-        background: @bgColor;
+        background: #eae6e0;
     }
-    .outer-container-layout(@use-mobile-layout, @is-using-dark-theme);
-    .menu-layout(@use-mobile-layout, @is-using-dark-theme);
-    .error-404(@use-mobile-layout, @is-using-dark-theme);
-    .pick-clinician(@use-mobile-layout, @is-using-dark-theme);
-    .pick-office(@use-mobile-layout, @is-using-dark-theme);
-    .pick-service(@use-mobile-layout, @is-using-dark-theme);
+    .outer-container-layout(@use-mobile-layout);
+    .menu-layout(@use-mobile-layout);
+    .error-404(@use-mobile-layout);
 }
 
-.component-styles() {
-
-}
 
 @media only screen and (min-width: 1824px) {
     .device-layout(1824px, 100%, false, red);

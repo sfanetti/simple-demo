@@ -1,16 +1,18 @@
 <div class="select-clinician-container">
-    <h1>Enter the Clinician ID Below</h1>
-    <div class="clinician-input-container">
-        <label for="choose-clinician">Clinician ID:</label>
-        <Input id="choose-clinician" @value={{this.session.clinicianId}} />
-    </div>
-    <div class="host-input-container">
-        <label for="choose-host">Clinician ID:</label>
-        <Input id="choose-host" @value={{this.session.currentHost}} />
-    </div>
-    <div class="controls">
-        <LinkTo @route="pick-service" @model={{this.session.clinicianId}}>
-            <button class="btn btn-primary">Schedule Appointment</button>
-        </LinkTo>
-    </div>
+    <h1>Select Clinician</h1>
+    <form class="form-area">
+        <div class="input-container">
+            <fieldSet class="field-set clinician-input-container">
+                <label for="choose-clinician">Clinician ID:</label>
+                <Input id="choose-clinician" @value={{this.session.clinicianId}} />
+            </fieldSet>
+            <fieldSe class="field-set host-input-container">
+                <label for="choose-host">Host Url:</label>
+                <Input id="choose-host" @value={{this.session.currentHost}} />
+            </fieldSe>
+        </div>
+        <div class="controls">
+            <button class="btn btn-primary btn-select-service" {{action 'onSelectClinician' @office.id}}>Schedule Appointment</button>
+        </div>
+    </form>
 </div>

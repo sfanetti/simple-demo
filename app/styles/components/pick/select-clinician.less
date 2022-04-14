@@ -1,1 +1,57 @@
-@import '../../themes';
+@import '../../util/tools';
+@import '../../util/dimensions';
+@import '../../util/colors';
+
+.select-clinician() {
+    .get-dimensions();
+    .get-colors();
+
+    .select-clinician-container {
+        .border(@-light-element-border);
+        .shadow();
+        width: 70%;
+        min-width: 25rem;
+        border-radius: @border-radius-sm;
+        display: flex;
+        padding: 2rem;
+        flex-direction: column;
+
+        background: @-light-form-background;
+
+        h1 {
+            margin-bottom: 2rem;
+            color: @-light-form-header-text;
+        }
+        .input-container {
+            margin-bottom: 2rem;
+        }
+
+        input {
+            padding: 1rem 1.2rem;
+            border: 1px inset grey;
+            border-radius: .3rem;
+        }
+
+        label {
+            font-weight: 600;
+            padding-right: 2rem;
+            align-self: center;
+        }
+        .field-set {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-bottom: 1rem;
+            label {
+                flex: 0 0 auto;
+            }
+            input {
+                flex: 1 1 100%;
+            }
+        }
+        .controls {
+            text-align: right;
+        }
+
+    }
+}

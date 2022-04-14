@@ -1,7 +1,8 @@
 <div class="menu-list">
     <ol>
         {{#each states as |state|}}
-            <li class="state {{if state.isActive 'active'}}">
+            <li class="state {{if state.isActive 'active'}} {{if state.isDisabled 'disabled'}}"
+                {{action 'onClickMenu' state}}>
                 <h4 class="title">{{state.title}}</h4>
                 <h5 class="details">{{state.details}}</h5>
             </li>

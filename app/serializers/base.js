@@ -8,7 +8,6 @@ export default class CptCodeSerializer extends JSONAPISerializer {
     }
 
     normalizeResponse(store, primaryModelClass, payload) {
-        debugger;
         return super.normalizeResponse(...arguments);
     }
 }

@@ -1,14 +1,14 @@
-@import '../themes';
+@import '../util/colors';
 
 .loading-container {
-    .get-themes(true);
+    .get-colors();
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 
     i {
-        color: @link-text;
+        color: @-light-link-text;
         animation: spin 1s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
     }
 

@@ -1,14 +1,19 @@
-<div class="service-container">
-    <h3 class="service-description">{{@code.description}}</h3>
-    <div class="service-details">
-        <p class="service-duration">{{duration}}</p>
-        <p class="service-cost">
-            {{cost}}
-        </p>
+<div class="cpt-code-container">
+    <div class="service-container">
+        <h3 class="description">{{@code.description}}</h3>
+        <div class="details">
+            <dl>
+                <dt>Duration:</dt>
+                <dd class="duration">{{duration}}</dd>
+            </dl>
+            <dl>
+                <dt>Cost:</dt>
+                <dd class="cost">{{cost}}</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="controls">
+        <button class="btn btn-primary btn-select-service 1" {{action 'onSelectCode' @code.id}}>Select</button>
     </div>
 </div>
-<div class="selection-container">
-    <LinkTo @route="pick-office" @model={{@clinicianId}} @query={{hash cptCode=@code.id}} >
-        <button class="btn btn-primary btn-select-service">Select</button>
-    </LinkTo>
-</div>
+

@@ -10,7 +10,6 @@ const handleFailedToStart = () => {
 };
 
 export default class App extends Application {
-    rootElement = 'body';
     modulePrefix = config.modulePrefix;
     podModulePrefix = config.podModulePrefix;
     Resolver = Resolver;

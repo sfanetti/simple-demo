@@ -1,1 +1,53 @@
-@import '../../themes';
+@import '../../util/tools';
+@import '../../util/dimensions';
+@import '../../util/colors';
+
+.select-office() {
+    .get-dimensions();
+    .get-colors();
+
+    .office-container {
+        .border(@-light-element-border);
+        .shadow(5%);
+
+        border-radius: @border-radius-sm;
+        padding: 2rem 3rem;
+        display: flex;
+        flex-direction: row;
+
+        .service-container {
+            flex: 1 1 100%;
+            .description {
+                color: @-light-form-header-text;
+                margin-bottom: 2rem;
+            }
+            .details {
+                display: flex;
+                flex-direction:row;
+                flex-wrap: nowrap;
+                gap: 2rem;
+                dl {
+                    flex: 1 1 100%;
+                    display: block;
+                    align-self: flex-end;
+                    dt {
+                        font-weight: bold;
+                        color: @-light-form-header-text;
+                    }
+                    & > * {
+                        display: inline;
+                        white-space: nowrap;
+                    }
+                }
+
+
+            }
+
+        }
+
+        .controls {
+            align-self: center;
+            flex: 0 0 auto;
+        }
+    }
+}

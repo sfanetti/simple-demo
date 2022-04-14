@@ -1,5 +1,32 @@
-@import '../themes';
+@import '../util/colors';
 
-.pick-service(@use-mobile-layout, @is-using-dark-theme) {
+.pick-service() {
+    .services-container {
+        .get-colors();
+        height: 100%;
+        display: flex;
+        padding: 2rem;
+        flex-direction: column;
+        gap: 2rem;
 
+        .no-services-found {
+            align-self:center;
+            margin-top: auto;
+            margin-bottom: auto;
+
+            .title-container {
+                color: @-light-form-header-text;
+                font-size: 10rem;
+                margin-bottom: 3rem;
+                h1{
+                    font-size: 10rem;
+                    display:inline;
+                }
+            }
+
+            h3 {
+                color: @-light-form-sub-header-text;
+            }
+        }
+    }
 }

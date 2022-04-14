@@ -1,33 +1,28 @@
 <div class="office-container">
-    <h3 class="name">
+    <h3 class="description">
         {{@office.name}}
     </h3>
 
-    {{#if @office.isVideo}}
-        <div class="video-card">
-        </div>
-    {{else}}
-        <div class="map-container">
-            <div class="map-component">
-                <iframe
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src={{mapUrl}}>
-                </iframe>
+    <div class="type">
+        {{#if @office.isVideo}}
+            <i class="fa-solid fa-camera-web"></i>
+        {{else}}
+            <div class="map-container">
+                <div class="map-component">
+                    <iframe
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src={{mapUrl}}>
+                    </iframe>
+                </div>
             </div>
-        </div>
-    {{/if}}
+        {{/if}}
+    </div>
     <div class="phone-number">
         {{@office.phone}}
     </div>
-    <div class="visit-details">
-        {{#if @office.isVideo}}
-            <span class="isVideo"></span>
-        {{/if}}
-
-        {{#if @office.isPublic}}
-            <span class="isPublic"></span>
-        {{/if}}
+    <div class="controls">
+        <button class="btn btn-primary btn-select-service 1" {{action 'onSelectOffice' @office.id}}>Select</button>
     </div>
 </div>
