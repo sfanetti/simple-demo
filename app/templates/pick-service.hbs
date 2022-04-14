@@ -1,0 +1,12 @@
+<div class="clinical-services">
+    {{#each model.codes as |code|}}
+        <Pick::CptCode @code={{code}} @clinicianId={{model.clinicianId}} />
+    {{/each}}
+
+    {{#unless model.codes.length }}
+        <div class="no-offices-found">
+            <h1>Sorry</h1>
+            <h3>There are no services offered by Clinician: {{model.clinicianId}}</h3>
+        </div>
+    {{/unless}}
+</div>

@@ -6,4 +6,9 @@ export default class CptCodeSerializer extends JSONAPISerializer {
     keyForAttribute(key) {
         return camelize(key);
     }
+
+    normalizeResponse(store, primaryModelClass, payload) {
+        debugger;
+        return super.normalizeResponse(...arguments);
+    }
 }

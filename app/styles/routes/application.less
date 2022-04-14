@@ -1,0 +1,54 @@
+@import '../themes';
+
+.outer-container-layout(@use-mobile-layout, @is-using-dark-theme) {
+    .outer-container {
+        .get-themes(@is-using-dark-theme);
+        .border(@container-border);
+        .shadow();
+
+        background: @container-background;
+        max-width: calc(100% - 50rem);
+        min-width: calc(100% - 4rem);
+
+        display:flex;
+        flex-direction: column;
+        border-radius: @border-radius-md;
+        overflow:hidden;
+
+        .header {
+            flex: 1 1 100%;
+            display:flex;
+            flex-direction: row;
+            padding: 2rem;
+            color: @header-text;
+            background-color: @header-background;
+            background: @header-gradient;
+
+            .title-container {
+                flex: 1 1 100%;
+                font-size: 3rem;
+                font-family: @title-font;
+            }
+
+            .nav-menu {
+                align-self: flex-end;
+                flex: 1 1 auto;
+            }
+        }
+        .schedule-container {
+            display:flex;
+            flex-direction: row;
+
+            .schedule-menu-container {
+                min-width: 20rem;
+                min-height: 60rem;
+                background-color: @menu-background;
+                border-right: @element-border dashed @border-width;
+            }
+            .schedule-states {
+                flex: 1 1 100%;
+            }
+
+        }
+    }
+}

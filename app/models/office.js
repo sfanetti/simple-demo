@@ -1,5 +1,8 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
+/**
+ * Simplified Office Model
+ */
 export default class OfficeModel extends Model {
     @attr('string')
     name;
@@ -15,4 +18,10 @@ export default class OfficeModel extends Model {
 
     @attr('boolean')
     isPublic;
+
+    @attr('array')
+    links;
+
+    @belongsTo('clinician')
+    clinician;
 }

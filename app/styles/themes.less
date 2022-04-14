@@ -1,0 +1,162 @@
+//light theme variables
+@color-primary-100: #e6f2ec;
+@color-primary-200: #a6d2bd;
+@color-primary-300: #66b28d;
+@color-primary-400: #339967;
+@color-primary-500: #007f41;
+@color-primary-600: #00723b;
+@color-primary-700: #006634;
+@color-primary-800: #00592e;
+@color-primary-900: #004021;
+@color-secondary-400: #a4adb5;
+@color-secondary-500: #68747d;
+@color-secondary-700: #383e43;
+@color-secondary-900: #23272a;
+@color-primary-special-500: #007f41;
+@color-primary-special-700: #006634;
+@color-primary-special-900: #004021;
+@color-background: #ffffff;
+@color-bodytext: #333333;
+
+@warning-color: #ab2600;
+
+@small-button-border-radius: 2rem;
+@medium-button-border-radius: 6px;
+@time-spot-button-border-radius: 15px;
+
+@border-width: 0.15rem;
+@border-radius-sm: 0.5rem;
+@border-radius-md: 0.75rem;
+@border-radius-lg: 1rem;
+
+@h1-size: 4rem;
+@h2-size: 3.5rem;
+@h3-size: 3rem;
+@h4-size: 2.5rem;
+@h5-size: 2rem;
+@h6-size: 1.75rem;
+
+@line-height-multiple: 1.25;
+
+@body-size: 1.6rem;
+
+.get-light-theme(@dark) when( @dark = false) {
+    @container-background: @color-background;
+
+    @header-background: @color-primary-900;
+    @menu-background: @color-primary-100;
+    @menu-accent: @color-background;
+
+    @header-text: @color-background;
+    @menu-text: @color-primary-900;
+    @menu-bullet: @color-primary-700;
+    @menu-detail-text: @color-secondary-400;
+
+    @main-text: @color-bodytext;
+    @secondary-text: @color-secondary-700;
+    @link-text : @color-primary-special-700;
+
+    @container-border: @color-secondary-500;
+    @element-border: @color-secondary-400;
+
+
+    @button-primary-active: @color-primary-special-900;
+    @button-primary-gradient-top: @color-primary-700;
+    @button-primary-gradient-bottom: @color-primary-900;
+    @button-primary-border: @color-primary-900;
+    @button-primary-text: @color-background;
+
+    @header-gradient: linear-gradient(180deg, rgba(0,114,59,1) 0%, rgba(0,99,51,1) 14%, rgba(0,69,36,1) 88%, rgba(0,34,18,1) 100%);
+
+    @warning: @warning-color;
+}
+
+.get-dark-theme(@dark) when( @dark = true) {
+    @container-background: @color-secondary-700;
+
+    @header-background: @color-secondary-900;
+    @menu-background: @color-primary-700;
+    @menu-accent: @color-primary-900;
+
+    @header-text: @color-primary-200;
+    @menu-text: @color-background;
+    @menu-bullet: @color-primary-100;
+    @menu-detail-text: @color-primary-100;
+
+    @main-text: @color-background;
+    @secondary-text: @color-primary-300;
+    @link-text : @color-primary-400;
+
+    @container-border: @color-secondary-400;
+    @element-border: @color-primary-900;
+
+    @button-primary-active: @color-primary-special-900;
+    @button-primary-gradient-top: @color-primary-700;
+    @button-primary-gradient-bottom: @color-primary-900;
+    @button-primary-border: @color-primary-900;
+    @button-primary-text: @color-background;
+
+    @header-gradient: linear-gradient(180deg, rgba(0,114,59,1) 0%, rgba(0,185,95,1) 14%, rgba(27,142,87,1) 88%, rgba(111,224,170,1) 100%);
+
+    @warning: @warning-color;
+}
+
+.get-themes(@isDark) {
+    .get-light-theme(@isDark);
+    .get-dark-theme(@isDark);
+
+    .setButtonStyle('primary', @button-primary-text, @header-gradient);
+
+    a {
+        color: @link-text;
+    }
+}
+
+.border(@border-color) {
+    border: @border-color solid @border-width;
+}
+.shadow(@intensity: 15%) {
+    box-shadow:
+        0 .1rem .1rem rgba(0, 0, 0, @intensity),
+        0 .2rem .2rem rgba(0, 0, 0, @intensity),
+        0 .4rem .4rem rgba(0, 0, 0, @intensity),
+        0 .8rem .8rem rgba(0, 0, 0, @intensity),
+        0 1.6rem 1.6rem rgba(0, 0, 0, @intensity);
+}
+
+.setHeaderStyles(@counter, @mult) when (@counter > 0) {
+    .setHeaderStyles(@counter - 1, @mult);
+    @h: e(replace('h%', '%', @counter));
+    @prop1: replace('h%-size', '%', @counter);
+
+    @font-family: if(@counter > 3, Roboto, 'Le Monde Journal Book');
+
+    @{h} {
+        font-family: @font-family;
+        font-size: @@prop1;
+        line-height: @@prop1 * @mult;
+    }
+}
+.setButtonStyle(@type, @text-color, @background: none) {
+    @selector: e( replace('btn-%', '%', @type));
+
+    button.btn {
+        padding: 1rem 1.5rem;
+        border-radius: @border-radius-sm;
+        font-weight: 600;
+        font-size: @body-size;
+        cursor: pointer;
+
+        &.@{selector} {
+            background: @background;
+            color: @text-color;
+        }
+    }
+}
+
+.setHeaderStyles(6, @line-height-multiple);
+
+
+
+
+

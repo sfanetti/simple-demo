@@ -1,74 +1,108 @@
-// CSS additions
-@import 'resets';
-@import 'fonts';
+// reset and fonts
+@import 'util/resets';
+@import 'util/fonts';
+@import 'themes';
 
-@import 'light-theme';
+// component styles
+@import 'components/pick/cpt-code';
+@import 'components/pick/office';
+@import 'components/pick/select-clinician';
+@import 'components/common/menu';
 
+// route styles
+@import 'routes/application';
+@import 'routes/error';
+@import 'routes/error-404';
+@import 'routes/loading';
+@import 'routes/pick-clinician';
+@import 'routes/pick-office';
+@import 'routes/pick-service';
+
+
+@is-using-dark-theme: false;
+@title-font: "Le Monde Journal Book", "Times New Roman";
+@body-font: Roboto, sans-serif;
+@debug-background: true;
 
 html {
+    /*
+        allows for setting sizes based on base 10 rems.
+        1.5rem is the equivalent of 15px but this scales
+        with the user's browser font size
+        Some people hate this - some people see the utility
+         - i like it but..
+        its subjective :)
+     */
     font-size: 62.5%;
 }
 
-
+/**
+    Just setting base container here - for the demo I am assuming
+    this is just a standalone route - dunno.
+    This is not the best styling but given the time and the
+    nature of this I did not think the styling needed to be uber clean
+ */
 body {
     height: 100vh;
     width: 100vw;
-    font-size: 1.6rem;
-    font-family: Roboto, sans-serif;
+    font-size: @body-size;
+    font-family: @body-font;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    .debugBorder(green);
-}
 
-.debugBorder(@border-color) {
-    border: @border-color solid 0.15rem;
-}
-
-.outer-container {
-    .light-theme();
-    .debugBorder(@outer-border-color);
-    max-width: calc(100% - 50rem);
-    min-width: calc(100% - 4rem);
-    display:flex;
-    flex-direction: column;
-    border-radius: 1rem;
-    overflow:hidden;
-
-    .header {
-        flex: 1 1 100%;
-        display:flex;
-        flex-direction: row;
-        padding: 2rem;
-        color: @header-font-color;
-        background-color: @header-background-color;
-        .title-container {
-            flex: 1 1 100%;
-            font-size: 3rem;
-            font-family: "Le Monde Journal Book", "Times New Roman";
-        }
-
-        .nav-menu {
-            align-self: flex-end;
-            flex: 1 1 auto;
-        }
-    }
-    .schedule-container {
-        display:flex;
-        flex-direction: row;
-
-        .schedule-menu-container {
-            min-width: 20%;
-            padding: 1.5rem;
-            background-color: @menu-background-color;
-            min-height: 60rem;
-        }
-
-
+    &.dark-theme-on {
+        @is-using-dark-theme: true;
     }
 }
 
-@import 'menu';
-@import 'select-clinician';
+.device-layout(@minWidth, @maxWidth, @use-mobile-layout, @bgColor) {
+    body {
+        background: @bgColor;
+    }
+    .outer-container-layout(@use-mobile-layout, @is-using-dark-theme);
+    .menu-layout(@use-mobile-layout, @is-using-dark-theme);
+    .error-404(@use-mobile-layout, @is-using-dark-theme);
+    .pick-clinician(@use-mobile-layout, @is-using-dark-theme);
+    .pick-office(@use-mobile-layout, @is-using-dark-theme);
+    .pick-service(@use-mobile-layout, @is-using-dark-theme);
+}
+
+.component-styles() {
+
+}
+
+@media only screen and (min-width: 1824px) {
+    .device-layout(1824px, 100%, false, red);
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1824px) {
+    .device-layout(1224px, 100%, false, blue);
+}
+
+@media only screen and (min-width: 736px) and (max-width: 1024px) {
+    .device-layout(768px, 1024px, false, green);
+}
+
+@media only screen and (min-width: 640px) and (max-width: 736px) {
+    .device-layout(414px, 100%, true, yellow);
+}
+
+@media only screen and (min-width: 568px) and (max-width: 640px) {
+    .device-layout(360px, 100%, true, coral);
+}
+
+@media only screen and (min-width: 480px) and (max-width: 568px) {
+    .device-layout(320px, 100%, true, purple);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .device-layout(320px, 480px, true, grey);
+}
+
+@media only screen and (max-width: 320px) {
+    .device-layout(100%, 320px, true, teal);
+}
 
 

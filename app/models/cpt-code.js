@@ -1,5 +1,8 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
+/**
+ * Simplified cpt codes model
+ */
 export default class CptCodeModel extends Model {
     @attr('string')
     description;
@@ -12,4 +15,10 @@ export default class CptCodeModel extends Model {
 
     @attr('boolean')
     callToBook;
+
+    @attr('array')
+    links;
+
+    @belongsTo('clinician')
+    clinician;
 }

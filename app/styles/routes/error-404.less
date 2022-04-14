@@ -1,0 +1,53 @@
+@import '../themes';
+
+.error-404(@use-mobile-layout, @is-using-dark-theme) {
+    .error-container {
+        * {
+            border: solid red 1px;
+        }
+        .get-themes(@is-using-dark-theme);
+        display:flex;
+        flex-direction: row;
+        padding: 2rem;
+
+        .error-icon-container {
+            font-size: 24rem;
+            color: @warning;
+        }
+
+        .error-title {
+            padding: 3rem 0;
+        }
+
+        .error-details {
+            margin-bottom: 3rem;
+        }
+
+        .error-message-container {
+            padding: 3rem;
+            display: flex;
+        }
+
+        .control-container {
+            text-align: right;
+        }
+
+    }
+
+    .update-layout() when (@use-mobile-layout) {
+        .error-container {
+            flex-direction: column;
+        }
+        .error-message-container {
+            flex-direction: column;
+        }
+
+        .error-icon-container, .error-title {
+            align-self: center;
+        }
+    }
+
+    .update-layout();
+}
+
+

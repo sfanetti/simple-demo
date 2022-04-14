@@ -7,4 +7,14 @@ export default class SessionService extends Service {
     @tracked clinicianId = config.APP.INITIAL_CUSTOMER_ID;
     @tracked isLightTheme = true;
 
+    resetToDefaults() {
+        debugger;
+        this.currentHost = config.APP.API_HOST;
+        this.clinicianId = config.APP.INITIAL_CUSTOMER_ID;
+    }
+
+    switchTheme() {
+        this.isLightTheme = !this.isLightTheme;
+    }
+
 }

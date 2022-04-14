@@ -2,12 +2,37 @@ import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
 export default class Router extends EmberRouter {
-  location = config.locationType;
-  rootURL = config.rootURL;
+    location = config.locationType;
+    rootURL = config.rootURL;
 }
 
-Router.map(function() {
-  this.route('scheduler', { path: '/schedule'});
-  this.route('list-cpt-codes', { path: '/services/:clinician_id'});
-  this.route('list-offices', { path: '/offices/:clinician_id'});
+export const ROUTES = [
+    {
+        route: 'pick-clinician', base: 'clinicians', title: 'Choose Clinician',
+        details: 'Samantha Jones MD', isIndex: true
+    },
+    {
+        route: 'pick-service', base: 'services', params: ':clinician_id', title: 'Choose Service',
+        details: 'Services can be online or in person'
+    },
+    {
+        route: 'pick-office', base: 'offices', params: ':clinician_id', title: 'Choose Location',
+        details: 'Office visits may be subject to restrictions'
+    }
+];
+
+
+Router.map(function () {
+    ROUTES.forEach(state => {
+        const {route, base, params, isIndex} = state;
+        const path = `/${base}/${params || ''}`;
+        this.route(route, {path});
+        if (isIndex) {
+            const path = '/';
+            this.route(route, {path});
+        }
+    });
+    this.route('error');
+    this.route('loading');
+    this.route('error-404', {path: '/404'});
 });

@@ -1,0 +1,12 @@
+<div class="office-locations {{model.clinicianId}}">
+    {{#each model.offices as |office|}}
+        <Pick::Office @office={{office}} @clinicianId={{model.clinicianId}} />
+    {{/each}}
+
+    {{#unless model.offices.length }}
+        <div class="no-offices-found">
+            <h1>Sorry</h1>
+            <h3>There are no offices on record for Clinician: {{model.clinicianId}}</h3>
+        </div>
+    {{/unless}}
+</div>

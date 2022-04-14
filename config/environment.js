@@ -5,6 +5,10 @@ module.exports = function (environment) {
         modulePrefix: 'simple-demo',
         environment,
         rootURL: '/',
+        ERROR_PATHS: {
+            UNKNOWN: '404',
+            GENERAL: 'error'
+        },
         locationType: 'auto',
         EmberENV: {
             FEATURES: {
@@ -30,6 +34,10 @@ module.exports = function (environment) {
 
         CURRENCY: {
             SYMBOL: '$'
+        },
+
+        DEFAULT_URL: {
+
         }
     };
 

@@ -1,0 +1,16 @@
+<div class="select-clinician-container">
+    <h1>Enter the Clinician ID Below</h1>
+    <div class="clinician-input-container">
+        <label for="choose-clinician">Clinician ID:</label>
+        <Input id="choose-clinician" @value={{this.session.clinicianId}} />
+    </div>
+    <div class="host-input-container">
+        <label for="choose-host">Clinician ID:</label>
+        <Input id="choose-host" @value={{this.session.currentHost}} />
+    </div>
+    <div class="controls">
+        <LinkTo @route="pick-service" @model={{this.session.clinicianId}}>
+            <button class="btn btn-primary">Schedule Appointment</button>
+        </LinkTo>
+    </div>
+</div>

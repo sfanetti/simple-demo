@@ -1,16 +1,20 @@
-<div class="outer-container {{if session.isLightTheme 'dark-theme'}}">
-    <div class="header">
-        <div class="title-container">Schedule a Visit</div>
-        <div class="nav-menu">
-            <i class="fa-solid fa-angles-left"></i>
-        </div>
+{{#if isReady}}
+    <div class="outer-container {{if session.isLightTheme 'dark-theme'}}">
+            <div class="header">
+                <div class="title-container">Schedule a Visit</div>
+                <div class="nav-menu">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+            </div>
+            <div class="schedule-container">
+                <div class="schedule-menu-container">
+                    <Common::Menu />
+                </div>
+                <div class="schedule-states">
+                    {{outlet}}
+                </div>
+            </div>
     </div>
-    <div class="schedule-container">
-        <div class="schedule-menu-container">
-            {{menu}}
-        </div>
-        <div class="schedule-states">
-            {{outlet}}
-        </div>
-    </div>
-</div>
+{{else}}
+    {{outlet}}
+{{/if}}
