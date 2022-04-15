@@ -29,7 +29,7 @@ module.exports = function (environment) {
         },
 
         GOOGLE_MAPS: {
-            SRC_URL: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBe_neBFS4Wnpj9hkwetvZAPGtTQ6OP6Yk'
+            SRC_URL: 'https://www.google.com/maps/embed/v1/place?key=${ enter the key I gave you }'
         },
 
         CURRENCY: {
