@@ -1,19 +1,27 @@
 <div class="cpt-code-container">
     <div class="service-container">
-        <h3 class="description">{{@code.description}}</h3>
+        <div class="name-and-callout">
+            <h3 class="description">{{@code.description}}</h3>
+            {{#if this.calloutUrl}}
+                <a href="{{this.calloutUrl}}" target="blank" class="call-out">
+                    <i class="fa-regular fa-up-right-from-square"></i>
+                </a>
+            {{/if}}
+        </div>
         <div class="details">
             <dl>
                 <dt>Duration:</dt>
-                <dd class="duration">{{duration}}</dd>
+                <dd class="duration">{{this.duration}}</dd>
             </dl>
             <dl>
                 <dt>Cost:</dt>
-                <dd class="cost">{{cost}}</dd>
+                <dd class="cost">{{this.cost}}</dd>
             </dl>
         </div>
     </div>
     <div class="controls">
-        <button class="btn btn-primary btn-select-service 1" {{action 'onSelectCode' @code.id}}>Select</button>
+        <button  type="button" class="btn btn-primary btn-select-service"
+            {{on 'click' (fn this.onSelectCode @code.id)}}>Select</button>
     </div>
 </div>
 

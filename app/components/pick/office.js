@@ -9,9 +9,16 @@ export default class OfficeComponent extends Component {
 
     get mapUrl() {
         const url = config.GOOGLE_MAPS.SRC_URL;
-        const { geolocation } = this.args.office;
+        const { geolocation } = this.args.office || {};
+        if (geolocation) {
+            return `${url}&q=${geolocation.lat},${geolocation.lng}`;
+        }
+        return `${url}&q=0,0`;
+    }
 
-        return `${url}&q=${geolocation.lat},${geolocation.lng}`;
+    get calloutUrl() {
+        const { links } = this.args.office || {};
+        return links ? links.self : '';
     }
 
     @action

@@ -1,8 +1,8 @@
 @import '../util/colors';
 
 .pick-service() {
+    .get-colors();
     .services-container {
-        .get-colors();
         height: 100%;
         display: flex;
         padding: 2rem;
@@ -26,6 +26,21 @@
 
             h3 {
                 color: @-light-form-sub-header-text;
+            }
+        }
+    }
+
+    #root-container {
+        &.dark-theme-on {
+            .services-container {
+                .no-services-found {
+                    .title-container {
+                        color: @-dark-form-header-text;
+                    }
+                    h3 {
+                        color: @-dark-form-sub-header-text;
+                    }
+                }
             }
         }
     }

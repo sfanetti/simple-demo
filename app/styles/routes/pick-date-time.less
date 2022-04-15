@@ -1,8 +1,94 @@
+@import '../util/tools';
+@import '../util/dimensions';
+@import '../util/colors';
+
 .pick-date-time() {
+    .get-dimensions();
+    .get-colors();
     .date-time-container {
         height: 100%;
         display: flex;
-        align-items: center;
         justify-content: center;
+        padding: 3rem;
+        .wrap-up {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            h1,h3,h4 {
+                color: @-light-form-header-text;
+            }
+            dl {
+                .border(@-light-element-border);
+                .shadow();
+                width: 70%;
+                min-width: 25rem;
+                border-radius: @border-radius-sm;
+                display: flex;
+                padding: 2rem;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                background-color: @-light-form-background;
+                transition: background-color @layout-animation-speed ease;
+                dt {
+                    font-weight: bold;
+                    color: @-light-form-header-text;
+                    transition: color @layout-animation-speed ease;
+                }
+                & > * {
+                    display: inline;
+                    white-space: nowrap;
+                }
+            }
+            ul {
+                padding-right: 3rem;
+                &>li {
+                    padding: 0.3rem 2rem;
+                    &>span {
+                        text-decoration: line-through;
+                    }
+                    &:before {
+                        margin-right: 1.5rem;
+                        content: "\f6d8";
+                        font-family: "Font Awesome 6 Pro";
+                        font-weight: 900;
+                        color: @-light-nav-menu-bullet;
+                        transition: color @layout-animation-speed ease;
+
+                    }
+                }
+            }
+        }
+    }
+
+    #root-container {
+        &.dark-theme-on {
+            .date-time-container {
+                .wrap-up {
+                    h1,h3,h4 {
+                        color: @-dark-form-header-text;
+                        transition: color @layout-animation-speed ease;
+                    }
+                    dl {
+                        .border(@-dark-element-border);
+                        background-color: @-dark-form-background;
+                        transition: background-color @layout-animation-speed ease;
+                        dt {
+                            color: @-dark-form-header-text;
+                            transition: color @layout-animation-speed ease;
+                        }
+                    }
+                    ul {
+                        &>li {
+                            &:before {
+                                color: @-dark-nav-menu-bullet;
+                                transition: color @layout-animation-speed ease;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

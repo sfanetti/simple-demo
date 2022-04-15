@@ -19,7 +19,7 @@ export default class OfficeModel extends Model {
     @attr('boolean')
     isPublic;
 
-    @attr('array')
+    @attr()
     links;
 
     @belongsTo('clinician')

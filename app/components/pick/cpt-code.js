@@ -10,13 +10,18 @@ export default class CptCodesComponent extends Component {
     @inject router;
 
     get duration() {
-        const { duration } = this.args.code;
+        const { duration } = this.args.code || {};
         return `${duration} minutes`;
     }
 
     get cost() {
-        const { rate } = this.args.code;
+        const { rate } = this.args.code || {};
         return rate > 0 ? `$${rate}` : 'Free';
+    }
+
+    get calloutUrl() {
+        const { links } = this.args.code || {};
+        return links ? links.self : '';
     }
 
     @action

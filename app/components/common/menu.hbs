@@ -1,10 +1,12 @@
 <div class="menu-list">
     <ol>
-        {{#each states as |state|}}
-            <li class="state {{if state.isActive 'active'}} {{if state.isDisabled 'disabled'}}"
-                {{action 'onClickMenu' state}}>
-                <h4 class="title">{{state.title}}</h4>
-                <h5 class="details">{{state.details}}</h5>
+        {{#each this.states as |state|}}
+            <li class="state {{if state.isActive 'active'}} {{if state.isDisabled 'disabled'}}">
+                <a href="#" class="menu-item"
+                    {{on 'click' (fn this.onClickMenu state)}}>
+                    <h4 class="title">{{state.title}}</h4>
+                    <h5 class="details">{{state.details}}</h5>
+                </a>
             </li>
         {{/each}}
     </ol>

@@ -16,11 +16,14 @@
         padding: 2rem;
         flex-direction: column;
 
-        background: @-light-form-background;
+        background-color: @-light-form-background;
+        transition: background-color @layout-animation-speed ease;
+
 
         h1 {
             margin-bottom: 2rem;
             color: @-light-form-header-text;
+            transition: color @layout-animation-speed ease;
         }
         .input-container {
             margin-bottom: 2rem;
@@ -45,13 +48,31 @@
             label {
                 flex: 0 0 auto;
             }
-            input {
+            .input-wrapper {
                 flex: 1 1 100%;
+                input {
+                    width: 100%;
+                }
             }
         }
         .controls {
             text-align: right;
         }
 
+    }
+
+    #root-container {
+        &.dark-theme-on {
+            .select-clinician-container {
+                .border(@-dark-element-border);
+                .shadow();
+                background-color: @-dark-form-background;
+                transition: background-color @layout-animation-speed ease;
+                h1 {
+                    color: @-dark-form-header-text;
+                    transition: color @layout-animation-speed ease;
+                }
+            }
+        }
     }
 }

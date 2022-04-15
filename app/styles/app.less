@@ -21,7 +21,6 @@
 @import 'routes/pick-service';
 @import 'routes/pick-date-time';
 
-@is-using-dark-theme: false;
 @title-font: "Le Monde Journal Book", "Times New Roman";
 @body-font: Roboto, sans-serif;
 
@@ -50,6 +49,8 @@ body {
     font-family: @body-font;
 }
 
+.setup-error();
+
 // component mixins
 .select-clinician();
 .select-cpt-code();
@@ -64,21 +65,20 @@ body {
 .get-colors();
 .get-dimensions();
 
-.setButtonStyle('primary', @-light-button-primary-text, @-light-button-primary-gradient);
 .setHeaderStyles(6, @line-height-multiple);
 
-.device-layout(@minWidth, @maxWidth, @use-mobile-layout, @bgColor) {
-    body {
-        background: #eae6e0;
+.device-layout(@minWidth, @maxWidth, @use-mobile-layout, @border-color) {
+    #root-container {
+        //border: 0.3rem solid @border-color;
     }
-    .outer-container-layout(@use-mobile-layout);
+    .outer-container-layout(@minWidth, @maxWidth, @use-mobile-layout);
     .menu-layout(@use-mobile-layout);
     .error-404(@use-mobile-layout);
 }
 
 
 @media only screen and (min-width: 1824px) {
-    .device-layout(1824px, 100%, false, red);
+    .device-layout(1224px, 100%, false, red);
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1824px) {
@@ -86,23 +86,24 @@ body {
 }
 
 @media only screen and (min-width: 736px) and (max-width: 1024px) {
-    .device-layout(768px, 1024px, false, green);
+    .device-layout(736px, 1024px, false, green);
+    .select-cpt-code(true);
 }
 
 @media only screen and (min-width: 640px) and (max-width: 736px) {
-    .device-layout(414px, 100%, true, yellow);
+    .device-layout(640px, 736px, true, yellow);
 }
 
 @media only screen and (min-width: 568px) and (max-width: 640px) {
-    .device-layout(360px, 100%, true, coral);
+    .device-layout(568px, 640px, true, coral);
 }
 
 @media only screen and (min-width: 480px) and (max-width: 568px) {
-    .device-layout(320px, 100%, true, purple);
+    .device-layout(480px, 568px, true, purple);
 }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-    .device-layout(320px, 480px, true, grey);
+    .device-layout(100%, 480px, true, grey);
 }
 
 @media only screen and (max-width: 320px) {

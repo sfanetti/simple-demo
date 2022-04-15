@@ -1,11 +1,11 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Route | list-cpt-codes', function(hooks) {
+module('Unit | Route | pick-clinician', function(hooks) {
   setupTest(hooks);
 
   test('it exists', function(assert) {
-    let route = this.owner.lookup('route:list-cpt-codes');
+    let route = this.owner.lookup('route:pick-clinician');
     assert.ok(route);
   });
 });

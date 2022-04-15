@@ -4,15 +4,20 @@
         <div class="input-container">
             <fieldSet class="field-set clinician-input-container">
                 <label for="choose-clinician">Clinician ID:</label>
-                <Input id="choose-clinician" @value={{this.session.clinicianId}} />
+                <div class="input-wrapper">
+                    <Input id="choose-clinician" autofocus @value={{this.session.clinicianId}} />
+                </div>
             </fieldSet>
             <fieldSe class="field-set host-input-container">
                 <label for="choose-host">Host Url:</label>
-                <Input id="choose-host" @value={{this.session.currentHost}} />
+                <div class="input-wrapper">
+                    <Input id="choose-host" @value={{this.session.currentHost}} />
+                </div>
             </fieldSe>
         </div>
         <div class="controls">
-            <button class="btn btn-primary btn-select-service" {{action 'onSelectClinician' @office.id}}>Schedule Appointment</button>
+            <button type="button" class="btn btn-primary btn-select-service"
+                {{on 'click' (fn this.onSelectClinician @office.id)}}>Schedule Appointment</button>
         </div>
     </form>
 </div>

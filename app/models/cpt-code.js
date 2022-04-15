@@ -16,7 +16,7 @@ export default class CptCodeModel extends Model {
     @attr('boolean')
     callToBook;
 
-    @attr('array')
+    @attr()
     links;
 
     @belongsTo('clinician')

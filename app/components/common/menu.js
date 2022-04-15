@@ -24,8 +24,8 @@ export default class MenuComponent extends Component {
     @action
     onClickMenu(state) {
         const { route, isDisabled, params } = state;
-        this.session.resetToDefaults();
         if (!isDisabled) {
+            this.session.resetToDefaults();
             if (params) {
                 this.router.transitionTo(route, this.session.clinicianId);
             } else {

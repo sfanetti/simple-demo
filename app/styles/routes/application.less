@@ -2,26 +2,37 @@
 @import '../util/dimensions';
 @import '../util/colors';
 
-.outer-container-layout(@use-mobile-layout) {
+.outer-container-layout(@minWidth, @maxWidth, @use-mobile-layout) {
     .get-dimensions();
     .get-colors();
-    .root-container {
+    #root-container {
         height: 100vh;
         width: 100vw;
-        font-size: @body-size;
-        font-family: @body-font;
+        color: @-light-body-text;
+        *:focus,-moz-focusring {
+            outline: 0.2rem dotted @-light-outline-color;
+        }
+
+        transition: background-color,color @layout-animation-speed ease;
+        background-color: @-light-page-background;
 
         display: flex;
         align-items: center;
         justify-content: center;
 
+        .setButtonStyle('primary');
+
         .outer-container {
             .border(@-light-container-border);
             .shadow();
 
-            background: @-light-container-background;
-            max-width: calc(100% - 50rem);
-            min-width: calc(100% - 4rem);
+            background-color: @-light-container-background;
+            transition: background-color,max-width,width @layout-animation-speed ease;
+            width: if(@use-mobile-layout, 100%, 100vw - 30rem);
+            max-width: if(@use-mobile-layout, @minWidth, 100%);
+            height: 100vh - 30rem;
+
+            border: if(@use-mobile-layout, 20px solid red, none);
 
             display:flex;
             flex-direction: column;
@@ -29,13 +40,16 @@
             overflow:hidden;
 
             .header {
-                flex: 1 1 100%;
+                flex: 0 0;
+                height: 3rem;
                 display:flex;
                 flex-direction: row;
-                padding: 2rem;
-                color: @-light-form-header-text;
+                padding: 4rem 2rem;
+                color: @-light-title-header-text;
                 background-color: @-light-title-header-background;
                 background: @-light-title-header-gradient;
+                transition: all @layout-animation-speed ease;
+
                 gap: 2rem;
 
                 .doctor-icon {
@@ -47,45 +61,80 @@
                     flex: 1 1 100%;
                     font-size: 3rem;
                     font-family: @title-font;
+                    align-self:center;
                 }
-
-
                 .theme-toggle{
                     align-self: flex-end;
                     flex: 1 1 auto;
+                    align-self:center;
+                    cursor: pointer;
+                    .strip-link-decorations(@-light-title-header-text);
+                    &:hover,&:active {
+                        .glow(@-light-text-glow);
+                    }
                 }
             }
             .schedule-container {
+                flex: 1 1 100%;
                 display:flex;
                 flex-direction: row;
+                height: calc(100% - 8rem);
 
                 .schedule-menu-container {
                     min-width: 20rem;
                     min-height: 60rem;
-                    background-color: @-light-nav-menu-background;
                     border-right: @-light-element-border dashed @border-width;
+                    transition: border-right @layout-animation-speed ease;
                 }
                 .schedule-states {
                     flex: 1 1 100%;
+                    overflow-y: auto;
+                    scroll-padding: 2rem;
+                    height: 100%;
                 }
 
             }
 
         }
         &.dark-theme-on {
-            background: @-dark-container-border;
-            background: @-dark-container-background;
-            .header {
-                color: @-dark-form-header-text;
-                background-color: @-dark-title-header-background;
-                background: @-dark-title-header-gradient;
-            }
-            .schedule-container {
-                .schedule-menu-container {
-                    background-color: @-dark-nav-menu-background;
-                    border-right: @-dark-element-border dashed @border-width;
-                }
+            background: @-dark-page-background;
+            transition: background-color,color @layout-animation-speed ease;
+            color: @-dark-body-text;
 
+            *:focus,-moz-focusring {
+                outline: 0.2rem dotted @-dark-outline-color;
+            }
+
+            .setButtonStyle('primary',
+                @-dark-button-primary-text,
+                @-dark-button-primary-gradient,
+                @-dark-button-primary-gradient-active,
+                @-light-button-primary-border
+            );
+
+            .outer-container {
+                .border(@-dark-container-border);
+                background-color: @-dark-container-background;
+                transition: background-color @layout-animation-speed ease;
+                .header {
+                    color: @-dark-title-header-text;
+                    background-color: @-dark-title-header-background;
+                    background: @-dark-title-header-gradient;
+                    transition: all @layout-animation-speed ease;
+
+                    .theme-toggle{
+                        :hover {
+                            .glow(@-dark-text-glow);
+                        }
+                    }
+                }
+                .schedule-container {
+                    .schedule-menu-container {
+                        border-right: @-dark-element-border dashed @border-width;
+                        transition: border-right @layout-animation-speed ease;
+                    }
+
+                }
             }
         }
     }

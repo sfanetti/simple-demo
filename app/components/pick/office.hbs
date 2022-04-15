@@ -1,28 +1,45 @@
 <div class="office-container">
-    <h3 class="description">
-        {{@office.name}}
-    </h3>
-
-    <div class="type">
+    <div class="interaction-type">
         {{#if @office.isVideo}}
-            <i class="fa-solid fa-camera-web"></i>
+            <i class="fa-solid fa-camera-web fa-2x"></i>
         {{else}}
             <div class="map-container">
                 <div class="map-component">
                     <iframe
-                        loading="lazy"
-                        allowfullscreen
-                        referrerpolicy="no-referrer-when-downgrade"
-                        src={{mapUrl}}>
+                            title="{{@office}}-location-frame"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src={{this.mapUrl}}>
                     </iframe>
                 </div>
             </div>
         {{/if}}
     </div>
-    <div class="phone-number">
-        {{@office.phone}}
+    <div class="interaction-container">
+        <div class="office-info">
+            <div class="name-and-callout">
+                <h3 class="name">
+                    {{@office.name}}
+                </h3>
+                {{#if this.calloutUrl}}
+                    <a href="{{this.calloutUrl}}" target="blank" class="call-out">
+                        <i class="fa-regular fa-up-right-from-square"></i>
+                    </a>
+                {{/if}}
+            </div>
+            <div class="details">
+                <div class="phone-number">
+                    <dl>
+                        <dt>Phone Number:</dt>
+                        <dd>{{@office.phone}}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="controls">
-        <button class="btn btn-primary btn-select-service 1" {{action 'onSelectOffice' @office.id}}>Select</button>
+        <button  type="button" class="btn btn-primary btn-select-office"
+            {{on 'click' (fn this.onSelectOffice @office.id)}}>Select</button>
     </div>
 </div>

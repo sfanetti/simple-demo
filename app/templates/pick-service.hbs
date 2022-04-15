@@ -1,15 +1,15 @@
 <div class="services-container">
-    {{#each model.codes as |code|}}
-        <Pick::CptCode @code={{code}} @clinicianId={{model.clinicianId}} />
+    {{#each @model.codes as |code|}}
+        <Pick::CptCode @code={{code}} @clinicianId={{@model.clinicianId}} />
     {{/each}}
 
-    {{#unless model.codes.length }}
+    {{#unless @model.codes.length }}
         <div class="no-services-found">
             <div class="title-container">
                 <i class="fa-regular fa-face-confused"></i>
                 <h1>Sorry</h1>
             </div>
-            <h3>There are no services offered by Clinician: {{model.clinicianId}}</h3>
+            <h3>There are no services offered by Clinician: {{@model.clinicianId}}</h3>
         </div>
     {{/unless}}
 </div>
