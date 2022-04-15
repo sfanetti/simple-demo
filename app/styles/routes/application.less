@@ -32,8 +32,6 @@
             max-width: if(@use-mobile-layout, @minWidth, 100%);
             height: 100vh - 30rem;
 
-            border: if(@use-mobile-layout, 20px solid red, none);
-
             display:flex;
             flex-direction: column;
             border-radius: @border-radius-md;
@@ -77,12 +75,12 @@
             .schedule-container {
                 flex: 1 1 100%;
                 display:flex;
-                flex-direction: row;
+                flex-direction: if(@use-mobile-layout, column, row);
                 height: calc(100% - 8rem);
 
                 .schedule-menu-container {
                     min-width: 20rem;
-                    min-height: 60rem;
+                    min-height: if(@use-mobile-layout, auto, 60rem);
                     border-right: @-light-element-border dashed @border-width;
                     transition: border-right @layout-animation-speed ease;
                 }
@@ -90,7 +88,7 @@
                     flex: 1 1 100%;
                     overflow-y: auto;
                     scroll-padding: 2rem;
-                    height: 100%;
+                    height: if(@use-mobile-layout, auto, 100%);
                 }
 
             }

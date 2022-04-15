@@ -7,6 +7,11 @@ export default class CptCodeSerializer extends JSONAPISerializer {
         return camelize(key);
     }
 
+    /*
+    When first scanning the API I thought these links might go somewhere interesting
+    so I grabbed them off the payload and added then to the attributes
+    but when I ran them they go nowhere so I am taking them out
+
     normalizeResponse(store, primaryModelClass, payload, id, requestType) {
         const { data, links } = payload;
         const newData = data.map(item => {
@@ -15,4 +20,6 @@ export default class CptCodeSerializer extends JSONAPISerializer {
         });
         return super.normalizeResponse(store, primaryModelClass, { data: newData, links }, id, requestType);
     }
+
+    */
 }
